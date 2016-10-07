@@ -180,6 +180,9 @@ public class RoCChanges {
 //	Disable steel purifier
 	replaceRecipeRoC(MachineRegistry.PURIFIER.getCraftedProduct(), null);
 	
+//	Disable flour direct smelting into bread
+	GT_ModHandler.removeFurnaceSmelting(ItemStacks.flour);
+	
 //	drying bed remove all drying recipes, readd salt
 		try {
 			Field tField = RecipesDryingBed.class.getDeclaredField("recipeList");

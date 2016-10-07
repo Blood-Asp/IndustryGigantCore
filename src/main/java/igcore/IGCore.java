@@ -3,6 +3,7 @@ package igcore;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.monster.*;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
@@ -135,6 +136,7 @@ public class IGCore
     	TinkersChanges.loadComplete();
     	GT_ModHandler.removeRecipeByOutput(GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Iron, 4));
     	GT_ModHandler.removeRecipeByOutput(GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Steel, 4));
+    	GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getModItem("progressiveautomation", "CobbleUpgrade", 1));
     } 
     
 	@SubscribeEvent(priority = EventPriority.LOWEST)
