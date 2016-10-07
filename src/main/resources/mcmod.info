@@ -1,0 +1,16 @@
+[
+{
+  "modid": "IGCore",
+  "name": "IndustryGigantCore",
+  "description": "",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Blood Asp"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
