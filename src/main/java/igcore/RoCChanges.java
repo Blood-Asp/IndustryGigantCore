@@ -11,9 +11,11 @@ import java.util.List;
 import Reika.DragonAPI.Instantiable.Data.Maps.FluidHashMap;
 import Reika.DragonAPI.Libraries.Registry.ReikaOreHelper;
 import Reika.DragonAPI.ModRegistry.ModOreList;
+import Reika.ReactorCraft.ReactorCraft;
 import Reika.ReactorCraft.Auxiliary.ReactorStacks;
 import Reika.ReactorCraft.Registry.CraftingItems;
 import Reika.ReactorCraft.Registry.FluoriteTypes;
+import Reika.ReactorCraft.Registry.ReactorBlocks;
 import Reika.ReactorCraft.Registry.ReactorItems;
 import Reika.RotaryCraft.Auxiliary.ItemStacks;
 import Reika.RotaryCraft.Auxiliary.RecipeManagers.ExtractorModOres;
@@ -182,6 +184,9 @@ public class RoCChanges {
 	
 //	Disable flour direct smelting into bread
 	GT_ModHandler.removeFurnaceSmelting(ItemStacks.flour);
+	
+//	Make Fluorite ores spawn as stone
+	ReactorCraft.blocks[ReactorBlocks.FLUORITEORE.ordinal()] = Blocks.stone;
 	
 //	drying bed remove all drying recipes, readd salt
 		try {
