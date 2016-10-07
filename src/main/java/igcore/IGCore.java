@@ -1,5 +1,6 @@
 package igcore;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.monster.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -100,7 +101,6 @@ public class IGCore
 
     	GT_OreDictUnificator.set(OrePrefixes.block, Materials.Steel, GT_ModHandler.getModItem("ImmersiveEngineering", "storage", 1, 7));
     	RoCChanges.onPreLoad();
-//    	FluidType.fluidTypes.remove("Aluminum");
     	TinkersChanges.load();
     	tConfig.save();
     }
@@ -125,7 +125,6 @@ public class IGCore
     	MagneticraftChanges.load();
     	ImmEngChanges.load();
     	RoCChanges.load();
-//    	FluidType.registerFluidType("Aluminum", TinkerWorld.metalBlock, 6, 350, FluidRegistry.getFluid("aluminum"), false);
     }  
     
     @EventHandler
@@ -134,6 +133,8 @@ public class IGCore
     	RoCChanges.loadcomplete();
     	Recipes.postLoad();
     	TinkersChanges.loadComplete();
+    	GT_ModHandler.removeRecipeByOutput(GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Iron, 4));
+    	GT_ModHandler.removeRecipeByOutput(GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Steel, 4));
     } 
     
 	@SubscribeEvent(priority = EventPriority.LOWEST)
