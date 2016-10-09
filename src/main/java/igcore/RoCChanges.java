@@ -188,6 +188,14 @@ public class RoCChanges {
 //	Make Fluorite ores spawn as stone
 	ReactorCraft.blocks[ReactorBlocks.FLUORITEORE.ordinal()] = Blocks.stone;
 	
+//	Make Diamond Shafts the GT way
+	Util.removeRecipeByOutput(ItemStacks.diamondshaft);
+	GT_ModHandler.addShapelessCraftingRecipe(ItemStacks.diamondshaft, new Object[]{GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Diamond, 1)});
+	
+//  Make Diamond Gears the GT way
+	Util.removeRecipeByOutput(ItemStacks.diamondgear);
+	GT_ModHandler.addShapelessCraftingRecipe(ItemStacks.diamondgear, new Object[]{GT_OreDictUnificator.get(OrePrefixes.gearGt, Materials.Diamond, 1)});
+	
 //	drying bed remove all drying recipes, readd salt
 		try {
 			Field tField = RecipesDryingBed.class.getDeclaredField("recipeList");

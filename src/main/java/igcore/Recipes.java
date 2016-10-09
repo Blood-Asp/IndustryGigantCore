@@ -387,6 +387,9 @@ public class Recipes {
 		GT_ModHandler.addCraftingRecipe(GT_ModHandler.getModItem("TConstruct", "Armor.DryingRack", 1), new Object[]{"EEE", 'E', new ItemStack(Blocks.wooden_slab,1,GT_Values.W)});
 		Util.removeRecipeByOutput(ItemList.OilDrill.get(1, null));
 		GT_ModHandler.addCraftingRecipe(GT_ModHandler.getModItem("questbook", "questBook", 1), new Object[]{"EA", 'E', GT_ModHandler.getModItem("TConstruct", "blankPattern", 1),'A',new ItemStack(Items.stick,1)});
+		GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getModItem("progressiveautomation","Planter", 1));
+		GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getModItem("progressiveautomation","Killer", 1));
+		
 		
 	}
 	
