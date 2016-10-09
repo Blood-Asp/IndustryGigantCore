@@ -61,7 +61,7 @@ import static gregtech.api.enums.GT_Values.*;
 public class IGCore
 {
     public static final String MODID = "IGCore";
-    public static final String VERSION = "0.1.2";
+    public static final String VERSION = "0.1.3";
     
     public static final GT_Recipe_Map sTraderRecipes = new GT_Recipe_Map(new HashSet<GT_Recipe>(1000), "gt.recipe.trader", "Trader", null, RES_PATH_GUI + "basicmachines/Default", 6, 6, 0, 0, 1, E, 1, E, true, true);
     public static final GT_Recipe_Map_Fuel sEnergyTradeFuels = new GT_Recipe_Map_Fuel(new HashSet<GT_Recipe>(10), "gt.recipe.energytrade", "Energy Trade", null, RES_PATH_GUI + "basicmachines/Default", 1, 1, 0, 0, 1, "Fuel Value: ", 1000, " EU", true, true);
@@ -126,7 +126,29 @@ public class IGCore
     	MagneticraftChanges.load();
     	ImmEngChanges.load();
     	RoCChanges.load();
-    }  
+//        ArrayList<ItemStack> stacks = new ArrayList();
+//        Item i = GameRegistry.findItem("ForgeMicroblock", "microblock");
+//        for (ItemStack s : buildStackList(new ItemStack(i), new int[]{1, 2, 4, 257, 258, 260, 513, 514, 516, 769, 770, 772})) {
+//          try
+//          {
+//            stacks.add((ItemStack)i.getClass().getDeclaredMethod("create", new Class[] { Integer.TYPE, String.class }).invoke(null, new Object[] { s.getItemDamage(), MicroMaterialRegistry.materialName(new Random().nextInt(20)) }));
+//          }
+//          catch (Throwable t)
+//          {
+//            t.printStackTrace();
+//          }
+//        }
+//        API.setItemListEntries(i, stacks);
+    } 
+    
+//    public static ArrayList<ItemStack> buildStackList(ItemStack stack, int[] metas)
+//    {
+//      ArrayList<ItemStack> stacks = new ArrayList();
+//      for (int i : metas) {
+//        stacks.add(new ItemStack(stack.getItem(), 1, i));
+//      }
+//      return stacks;
+//    }
     
     @EventHandler
     public void loadComplete(FMLLoadCompleteEvent event)
