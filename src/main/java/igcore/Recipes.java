@@ -385,6 +385,9 @@ public class Recipes {
 		Util.removeRecipeByOutput(ItemList.Charcoal_Pile.get(1, null));
 		GT_ModHandler.addCraftingRecipe(ItemList.Charcoal_Pile.get(1, null),  new Object[]{"EME", "CCC", 'M', ItemList.Hull_Bronze_Bricks, 'E', OrePrefixes.nugget.get(Materials.Iron), 'C', new ItemStack(Items.flint, 1)});
 		GT_ModHandler.addCraftingRecipe(GT_ModHandler.getModItem("TConstruct", "Armor.DryingRack", 1), new Object[]{"EEE", 'E', new ItemStack(Blocks.wooden_slab,1,GT_Values.W)});
+		Util.removeRecipeByOutput(ItemList.OilDrill.get(1, null));
+		GT_ModHandler.addCraftingRecipe(GT_ModHandler.getModItem("questbook", "questBook", 1), new Object[]{"EA", 'E', GT_ModHandler.getModItem("TConstruct", "blankPattern", 1),'A',new ItemStack(Items.stick,1)});
+		
 	}
 	
 	public static ItemStack ZB(Block tBlock){
