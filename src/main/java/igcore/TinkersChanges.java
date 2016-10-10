@@ -82,9 +82,10 @@ public class TinkersChanges {
         Smeltery.addAlloyMixing(new FluidStack(mMetals.get(Materials.Invar), 432), new FluidStack(mMetals.get(Materials.Iron),288), new FluidStack(mMetals.get(Materials.Nickel),144));
         Smeltery.addAlloyMixing(Materials.SolderingAlloy.getMolten(1440), new FluidStack(mMetals.get(Materials.Tin), 1296),Materials.Antimony.getMolten(144));
         Smeltery.addAlloyMixing(Materials.RedAlloy.getMolten(144), new FluidStack(mMetals.get(Materials.Copper), 144),Materials.Redstone.getMolten(576));
-        Smeltery.addAlloyMixing(Materials.CobaltBrass.getMolten(1008), Materials.Brass.getMolten(576), new FluidStack(FluidRegistry.getFluid("aluminum.molten"), 144));
+        Smeltery.addAlloyMixing(Materials.CobaltBrass.getMolten(1296), Materials.Brass.getMolten(1008), new FluidStack(FluidRegistry.getFluid("aluminum.molten"), 144), new FluidStack(mMetals.get(Materials.Cobalt), 144));
         Smeltery.addAlloyMixing(Materials.BatteryAlloy.getMolten(720), new FluidStack(mMetals.get(Materials.Lead), 432),Materials.Antimony.getMolten(144));
         Smeltery.addAlloyMixing(new FluidStack(mMetals.get(Materials.Electrum), 288), new FluidStack(mMetals.get(Materials.Gold), 144),new FluidStack(mMetals.get(Materials.Silver), 144));
+        
 	}
 	
 	public static void addMat(Materials tMat, Block tBlock, int meta){
