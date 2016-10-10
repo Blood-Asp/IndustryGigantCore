@@ -126,6 +126,9 @@ public class TinkersChanges {
             	}
             }
         }
+        for(ItemStack tItem : tItemList)
+            FurnaceRecipes.smelting().getSmeltingList().remove(tItem);
+        tItemList.clear();
         for(ItemStack tInput : mFurnace.keySet()){
         	ItemStack tOutput = mFurnace.get(tInput);
         	ItemData tData = GT_OreDictUnificator.getItemData(tOutput);
