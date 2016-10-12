@@ -1,10 +1,15 @@
 package igcore;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.command.server.CommandBlockLogic;
 import net.minecraft.entity.monster.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -37,6 +42,7 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent.WorldTickEvent;
 import gregtech.GT_Mod;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.ItemList;
@@ -53,6 +59,7 @@ import igcore.world.WorldProviderDefaultVoid;
 import igcore.world.WorldProviderEndVoid;
 import igcore.world.WorldProviderHellVoid;
 import info.loenwind.waterhooks.WaterFormEvent;
+import io.netty.buffer.ByteBuf;
 
 import static gregtech.api.enums.GT_Values.*;
 
@@ -61,12 +68,13 @@ import static gregtech.api.enums.GT_Values.*;
 public class IGCore
 {
     public static final String MODID = "IGCore";
-    public static final String VERSION = "0.1.4";
+    public static final String VERSION = "0.1.5";
     
     public static final GT_Recipe_Map sTraderRecipes = new GT_Recipe_Map(new HashSet<GT_Recipe>(1000), "gt.recipe.trader", "Trader", null, RES_PATH_GUI + "basicmachines/Default", 6, 6, 0, 0, 1, E, 1, E, true, true);
     public static final GT_Recipe_Map_Fuel sEnergyTradeFuels = new GT_Recipe_Map_Fuel(new HashSet<GT_Recipe>(10), "gt.recipe.energytrade", "Energy Trade", null, RES_PATH_GUI + "basicmachines/Default", 1, 1, 0, 0, 1, "Fuel Value: ", 1000, " EU", true, true);
     public static Configuration tConfig;
     public static boolean voidOverworld = false;
+    public static boolean autoUpdateQuest = true;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -75,6 +83,7 @@ public class IGCore
     	tConfig = new Configuration(tFile);
     	tConfig.load();
     	voidOverworld = tConfig.get("general", "GenerateVoidOverworld", false).getBoolean(false);
+    	autoUpdateQuest = tConfig.get("general", "AutoUpdateQuest", true).getBoolean(true);
     	
     	Util.init();
     	new GT_MetaGenerated_Item_04();
@@ -218,10 +227,60 @@ public class IGCore
     	if((event.Name.equals("dustAluminium")||event.Name.equals("dustAluminum"))&&event.Ore.getUnlocalizedName().equals("TConstruct:materials"))
     	event.setCanceled(true);
     }
+    
+    boolean firstTick = true;
+    @SubscribeEvent
+    public void onWorldTickEvent(WorldTickEvent event){
+    	if(firstTick){
+    		firstTick = false;
+    		if(!event.world.isRemote && autoUpdateQuest){
+    			BQCommandSender cmdSender = new BQCommandSender(event.world, 0, 100, 0);    			
+    			MinecraftServer.getServer().getCommandManager().executeCommand(cmdSender, "/bq_admin default load");
+    		}
+    		
+    	}
+    }
+    
+	public static class BQCommandSender extends CommandBlockLogic
+	{
+		World world;
+		ChunkCoordinates blockLoc;
+		
+		public BQCommandSender(World world, int x, int y, int z)
+	    {
+	    	blockLoc = new ChunkCoordinates(x, y, z);
+	    	this.world = world;
+	    }
+		
+		@Override
+		public ChunkCoordinates getPlayerCoordinates()
+		{
+			return blockLoc;
+		}
+		
+		@Override
+		public World getEntityWorld()
+		{
+			return world;
+		}
+		
+		@Override
+		public void func_145756_e(){}
+		
+		@Override
+		public int func_145751_f()
+		{
+			return 0;
+		}
+		
+		@Override
+		public void func_145757_a(ByteBuf p_145757_1_){}
+	    
+	    @Override
+	    public String getCommandSenderName()
+	    {
+	        return "IGCore";
+	    }
 }
-
-/**
- * Recpes disabled in GT config:
- * Etched platinum wireing
- * Energy Crystal
- **/
+    
+}
