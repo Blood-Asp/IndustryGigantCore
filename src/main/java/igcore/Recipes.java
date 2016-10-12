@@ -1,6 +1,7 @@
 package igcore;
 
 import Reika.ReactorCraft.Auxiliary.ReactorStacks;
+import gregtech.api.GregTech_API;
 import gregtech.api.enums.Dyes;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
@@ -104,6 +105,7 @@ public class Recipes {
 		addMaterialTrade( 5, ItemListIG.Trade_Materials4.get(0, null), c0512(4), new ItemStack(Items.nether_wart,16), 70200, 4);
 		addMaterialTrade( 6, ItemListIG.Trade_Materials4.get(0, null), c032k(1), new ItemStack(Items.ghast_tear,16), 192000, 4);
 		addMaterialTrade( 7, ItemListIG.Trade_Materials4.get(0, null), c0064(3), GT_Utility.copyAmount(16, ReactorStacks.ammonium), 22000, 4);
+		addMaterialTrade( 8, ItemListIG.Trade_Materials4.get(0, null), c0064(4), get(OrePrefixes.ingot, Materials.Ardite, 16), 25200, 8);
 		
 		addMaterialTrade( 1, ItemListIG.Trade_Materials5.get(0, null), c0512(1), get(OrePrefixes.ingot, Materials.Tungsten, 16), 25200, 16);
 		addMaterialTrade( 2, ItemListIG.Trade_Materials5.get(0, null), c0512(1), get(OrePrefixes.ingot, Materials.Platinum, 16), 25200, 16);
@@ -209,27 +211,33 @@ public class Recipes {
 		addTraderRecipe(new ItemStack[]{ItemListIG.Trade_EnergyAmp4.get(0, null),ItemListIG.Trade_EnergyVolt8.get(0, null)}, null, null, new ItemStack[]{ItemList.Credit_Greg_Neutronium.get(1, null)}, 275000, 524288);
 		
 //      Sell building materials
-        addSTrade(c0000(1), 600, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), new ItemStack(Blocks.stonebrick, 16)});								//		Stone Bricks 0,25/min
-        addSTrade(c0000(2), 800, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), new ItemStack(Blocks.gravel, 16), new ItemStack(Blocks.sand, 16)});	//		gravel/sand 0,38/min
-        addSTrade(c0000(4),1200, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), new ItemStack(Blocks.planks, 16, GT_Values.W), new ItemStack(Blocks.planks, 16, GT_Values.W)});	//		planks multiple types 0,5/min
-        addSTrade(c0000(3), 900, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), new ItemStack(Blocks.glass_pane, 16)});								//		glass planes 0,5/min
-        addSTrade(c0000(4), 600, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), new ItemStack(Blocks.brick_block, 16)});								//		Bricks 1/min
-        addSTrade(c0000(6), 600, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), GT_ModHandler.getModItem("CarpentersBlocks", "blockCarpentersBlock", 16)});//		carpentersblock(2,5 wood) 1,5/min
-        addSTrade(c0001(2), 1200, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), GT_ModHandler.getModItem("ImmersiveEngineering", "stoneDecoration", 16,4)});//		immersive concrete 2/min
-        addSTrade(c0000(12),1200, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), GT_ModHandler.getModItem("chisel", "factoryblock", 16)});//		factory block 1,5/min
-        addSTrade(c0001(4), 1200, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), GT_ModHandler.getModItem("chisel", "laboratoryblock", 16)});//		laboratory 3/min
-//		Reinforced stone/glass
-//		GT concrete
-//		railcraft concrete
-//		plascrete
-//		steel scraffolding
+        addSTrade(c0000(1), 0.5, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), new ItemStack(Blocks.stonebrick, 16)});								//		Stone Bricks 0,25/min
+        addSTrade(c0000(2), 1.7, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), new ItemStack(Blocks.gravel, 16), new ItemStack(Blocks.sand, 16)});	//		gravel/sand 0,38/min
+        addSTrade(c0000(4), 1.0, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), new ItemStack(Blocks.planks, 16, GT_Values.W), new ItemStack(Blocks.planks, 16, GT_Values.W)});	//		planks multiple types 0,5/min
+        addSTrade(c0000(3),0.75, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), new ItemStack(Blocks.glass_pane, 16)});								//		glass planes 0,5/min
+        addSTrade(c0000(4), 0.5, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), new ItemStack(Blocks.brick_block, 16)});								//		Bricks 1/min
+        addSTrade(c0000(6), 0.5, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), GT_ModHandler.getModItem("CarpentersBlocks", "blockCarpentersBlock", 16)});//		carpentersblock(2,5 wood) 1,5/min
+        addSTrade(c0001(2), 1.0, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), GT_ModHandler.getModItem("ImmersiveEngineering", "stoneDecoration", 16,4)});//		immersive concrete 2/min
+        addSTrade(c0000(12),1.0, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), GT_ModHandler.getModItem("chisel", "factoryblock", 16)});//			factory block 1,5/min
+        addSTrade(c0001(4), 1.0, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), GT_ModHandler.getModItem("chisel", "laboratoryblock", 16)});//		laboratory 3/min
+        addSTrade(c0001(7), 1.8, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), GT_ModHandler.getModItem("TConstruct", "SpeedBlock", 16)});//		brownstone 3/min
+        addSTrade(c0008(6), 3.0, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), GT_ModHandler.getModItem("IC2", "blockAlloy", 16)});//				Reinforced Stone 15/min
+        addSTrade(c0008(3), 3.0, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), GT_ModHandler.getModItem("IC2", "blockAlloyGlass", 16)});//			Reinforced Glass 8/min
+        addSTrade(c0008(3), 3.0, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), new ItemStack(GregTech_API.sBlockConcretes,16,8)});//				GT Concrete 8/min
+        addSTrade(c0008(1), 2.0, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), GT_ModHandler.getModItem("ImmersiveEngineering", "woodenDecoration", 16)});//treated wood scaffolding 4/min
+        addSTrade(c0064(1), 2.5, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), new ItemStack(GregTech_API.sBlockReinforced,16,2)});//				GT plascrete 24/min
+        addSTrade(c0512(2), 9.5, 0,new ItemStack[]{ItemListIG.Trade_Building.get(0, null), new ItemStack(GregTech_API.sBlockReinforced,16,3)});//				GT plascrete 60/min
 		
 //		Trade_Furniture
         addSTrade(c0001(8), 2400, 0,new ItemStack[]{ItemListIG.Trade_Furniture.get(0, null), GT_ModHandler.getModItem("CarpentersBlocks", "itemCarpentersBed", 16)});//      bed 4/min
         addSTrade(c0001(5), 2400, 0,new ItemStack[]{ItemListIG.Trade_Furniture.get(0, null), GT_ModHandler.getModItem("BiblioCraft", "BiblioTable", 16,GT_Values.W), GT_ModHandler.getModItem("BiblioCraft", "BiblioShelf", 16,GT_Values.W)});//      shelf + table 2,5/min
         addSTrade(c0001(2), 1200, 0,new ItemStack[]{ItemListIG.Trade_Furniture.get(0, null), GT_ModHandler.getModItem("BiblioCraft", "BiblioSeats", 16,GT_Values.W)});//      seat 2/min
         addSTrade(c0000(12),3600, 0,new ItemStack[]{ItemListIG.Trade_Furniture.get(0, null), GT_ModHandler.getModItem("BiblioCraft", "BiblioDesk", 16,GT_Values.W)});//      desk 4/min
-        addSTrade(c0001(3), 1200, 0,new ItemStack[]{ItemListIG.Trade_Furniture.get(0, null), new ItemStack(Items.item_frame,16)});									//      bronze boiler  3/min 
+        addSTrade(c0001(3), 1200, 0,new ItemStack[]{ItemListIG.Trade_Furniture.get(0, null), new ItemStack(Items.item_frame,16)});									//      item frame  3/min 
+        addSTrade(c0001(2), 1200, 0,new ItemStack[]{ItemListIG.Trade_Furniture.get(0, null), new ItemStack(Blocks.carpet,16)});									//      item frame  2/min 
+        addSTrade(c0008(5), 3.0, 0,new ItemStack[]{ItemListIG.Trade_Furniture.get(0, null), new ItemStack(Blocks.bookshelf,16)});									//      bookshelf  12/min 
+        addSTrade(c0512(1), 5.0, 0,new ItemStack[]{ItemListIG.Trade_Furniture.get(0, null), new ItemStack(Blocks.jukebox,16)});									//      bookshelf  50/min 
+        addSTrade(c0512(2), 9.0, 0,new ItemStack[]{ItemListIG.Trade_Furniture.get(0, null), new ItemStack(Blocks.ender_chest,16)});									//      enderchest  80/min 
         
 //		Trade_Food
         addSTrade(c0000(12), 1800, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), new ItemStack(Items.apple, 16)});										//      apple 1,5/min
@@ -241,25 +249,26 @@ public class Recipes {
         addSTrade(c0001(9), 1800, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), new ItemStack(Items.bread, 16)});										//      bread 6/min
         addSTrade(c0001(2), 1800, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), new ItemStack(Items.carrot, 16), new ItemStack(Items.potato, 16)});		//      carrot + potato 1,5/min
         addSTrade(c0001(3), 1800, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), new ItemStack(Items.melon, 16), new ItemStack(Blocks.pumpkin, 4)});		//      melon + pump 2/min
-        addSTrade(c0001(3), 1800, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), new ItemStack(Items.cake, 16)});										//      cake
-        addSTrade(c0001(3), 1800, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), new ItemStack(Items.pumpkin_pie, 16)});									//      pumpkin cake
-        addSTrade(c0001(3), 1800, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), new ItemStack(Items.cookie, 16)});										//      cooky
-        addSTrade(c0001(3), 1800, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), ItemList.ThermosCan_Chocolate_Milk.get(16, null)});						//      chocolate milk
-        addSTrade(c0001(3), 1800, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), ItemList.Food_Packaged_Fries.get(16, null), ItemList.Bottle_Lemonade.get(16, null), ItemList.Food_Burger_Meat.get(16, null)});//fries, limonade hamburger
+        addSTrade(c0064(2), 5.0, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), new ItemStack(Items.cake, 16)});										//      cake 20/min
+        addSTrade(c0008(3), 3.0, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), new ItemStack(Items.pumpkin_pie, 16)});									//      pumpkin cake 8/min
+        addSTrade(c0008(7), 4.0, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), new ItemStack(Items.cookie, 16)});										//      cookie 15/min
+        addSTrade(c0064(12), 10.0, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), ItemList.ThermosCan_Chocolate_Milk.get(16, null)});						//      chocolate milk 50/min
+        addSTrade(c0512(2), 12.0, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), ItemList.Food_Packaged_Fries.get(16, null), ItemList.Bottle_Lemonade.get(16, null), ItemList.Food_Burger_Meat.get(16, null)});//fries, limonade hamburger 75/min
+        addSTrade(c0064(5), 5.0, 0,new ItemStack[]{ItemListIG.Trade_Food.get(0, null), ItemList.ThermosCan_Chocolate_Milk.get(16, null)});						//      chocolate milk 30/min
                 
 //		Trade_Chemical     
-        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, Materials.Fuel.getFluid(16000), null, new ItemStack[]{c0001(1)}, 10000, 1);				//      fuel
-        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, Materials.NitroFuel.getFluid(16000), null, new ItemStack[]{c0001(1)}, 10000, 1);		//		nitrofuel
-        addSTrade(c0001(9), 1800, 0,new ItemStack[]{ItemListIG.Trade_Chemical.get(0, null), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Plastic, 16)});		//      plastics
-        addSTrade(c0001(9), 1800, 0,new ItemStack[]{ItemListIG.Trade_Chemical.get(0, null), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Polycaprolactam, 16)});//		nylon
-        addSTrade(c0001(9), 1800, 0,new ItemStack[]{ItemListIG.Trade_Chemical.get(0, null), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Silicone, 16)});		//		silicone
-        addSTrade(c0001(9), 1800, 0,new ItemStack[]{ItemListIG.Trade_Chemical.get(0, null), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Polytetrafluoroethylene, 16)});//teflon
-        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, Materials.Gas.getGas(16000), null, new ItemStack[]{c0001(1)}, 10000, 1);				//      gas
-        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, Materials.SodiumPersulfate.getFluid(16000), null, new ItemStack[]{c0001(1)}, 10000, 1);	//      sodium persulfate
-        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, Materials.SulfuricAcid.getFluid(16000), null, new ItemStack[]{c0001(1)}, 10000, 1);		//      acids
-        addSTrade(c0001(9), 1800, 0,new ItemStack[]{ItemListIG.Trade_Chemical.get(0, null), new ItemStack(Blocks.tnt, 16)});											//      tnt
-        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, new FluidStack(FluidRegistry.getFluid("bioethanol"),16000), null, new ItemStack[]{c0001(1)}, 10000, 1);	//ethanol
-        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, new FluidStack(FluidRegistry.getFluid("dye.chemical.dyeblack"),16000), null, new ItemStack[]{c0001(1)}, 10000, 1);		//      acids
+        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, Materials.Fuel.getFluid(16000), null, new ItemStack[]{c0064(4)}, 4800, 1);				//      fuel 30/min
+        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, Materials.NitroFuel.getFluid(16000), null, new ItemStack[]{c0064(7)}, 4800, 1);		//		nitrofuel 50/min
+        addSTrade(c0064(2), 2.0, 0,new ItemStack[]{ItemListIG.Trade_Chemical.get(0, null), GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Plastic, 16)});		//      plastics 30/min
+        addSTrade(c0064(3), 3.0, 0,new ItemStack[]{ItemListIG.Trade_Chemical.get(0, null), GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Polycaprolactam, 16)});//		nylon 40/min
+        addSTrade(c0064(2), 4.0, 0,new ItemStack[]{ItemListIG.Trade_Chemical.get(0, null), GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Silicone, 16)});		//		silicone 20/min
+        addSTrade(c0064(14), 8.0, 0,new ItemStack[]{ItemListIG.Trade_Chemical.get(0, null), GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Polytetrafluoroethylene, 16)});//teflon 80/min
+        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, Materials.Gas.getGas(16000), null, new ItemStack[]{c0008(10)}, 3600, 1);				//      gas 15/min
+        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, Materials.SodiumPersulfate.getFluid(16000), null, new ItemStack[]{c0064(3)}, 7200, 1);	//      sodium persulfate 25/min
+        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, Materials.SulfuricAcid.getFluid(16000), null, new ItemStack[]{c0064(1)}, 3600, 1);		//      acids 20/min
+        addSTrade(c0064(9), 7.0, 0,new ItemStack[]{ItemListIG.Trade_Chemical.get(0, null), new ItemStack(Blocks.tnt, 16)});											//      tnt 60/min
+        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, new FluidStack(FluidRegistry.getFluid("bioethanol"),16000), null, new ItemStack[]{c0064(6)}, 9600, 1);	//ethanol 50/min
+        addTraderRecipe(new ItemStack[]{ItemListIG.Trade_Chemical.get(0,null)}, new FluidStack(FluidRegistry.getFluid("dye.chemical.dyeblack"),16000), null, new ItemStack[]{c0064(3)}, 3600, 1);//chemicaldye 40/min
         
 //		Trade_Electronics
         addSTrade(c0001(9), 1800, 0,new ItemStack[]{ItemListIG.Trade_Electronics.get(0, null), GT_ModHandler.getModItem("OpenComputers", "keyboard", 16)});//      keyboard
@@ -340,6 +349,10 @@ public class Recipes {
 
 		
 
+	}
+	
+	public static void addSTrade(ItemStack aOut, double time, int eu, ItemStack[] aIn){
+		addSTrade(aOut, (int)time*1200, eu, aIn);
 	}
 	
 	public static void addSTrade(ItemStack aOut, int time, int eu, ItemStack[] aIn){

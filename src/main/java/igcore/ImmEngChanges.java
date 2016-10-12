@@ -82,7 +82,7 @@ public class ImmEngChanges {
 			    
 			    Util.removeRecipeByOutput(new ItemStack(IEContent.blockStoneDecoration,2,2));
 			    Util.removeRecipeByOutput(new ItemStack(IEContent.blockStoneDecoration,1,6));			    
-				IERecipes.addOredictRecipe(new ItemStack(IEContent.blockStoneDecoration,1,6), "NBN","BDB","NBN", 'D',new ItemStack(IEContent.blockStoneDecoration,1,1),'N',"plateSteel",'B',"ingotBrickNether");
+				IERecipes.addOredictRecipe(new ItemStack(IEContent.blockStoneDecoration,4,6), "NBN","BDB","NBN", 'B',new ItemStack(IEContent.blockStoneDecoration,1,1),'N',"ingotSteel",'D',"stoneBrickNether");
 
 			    BlastFurnaceRecipe.addRecipe(GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.WroughtIron, 1), "ingotIron", 600, new ItemStack(IEContent.itemMaterial,1,13));			    
 			    ArcFurnaceRecipe.addRecipe(GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.AnnealedCopper, 1), "ingotCopper",null, 200, 512, null);
