@@ -105,7 +105,7 @@ public class ImmEngChanges {
 		
 
 				GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getModItem("ImmersiveEngineering", "metalDecoration", 2, 5));
-				GT_ModHandler.addCraftingRecipe(GT_ModHandler.getModItem("ImmersiveEngineering", "metalDecoration", 2, 5), new Object[]{"ABA","CDC","ABA",'A',GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Steel, 1),'B',GT_ModHandler.getModItem("ImmersiveEngineering", "material", 1, 12),'C',ItemList.Electric_Piston_HV,'D',GT_OreDictUnificator.get(OrePrefixes.gearGt, Materials.Electrum, 1)});
+				GT_ModHandler.addCraftingRecipe(GT_ModHandler.getModItem("ImmersiveEngineering", "metalDecoration", 2, 5), new Object[]{"ABA","CDC","ABA",'A',GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Steel, 1),'B',GT_ModHandler.getModItem("ImmersiveEngineering", "material", 1, 12),'C',ItemList.Electric_Piston_HV,'D',GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.Electrum, 1)});
 			    
 				GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getModItem("ImmersiveEngineering", "metalDecoration", 2, 7));
 				GT_ModHandler.addCraftingRecipe(GT_ModHandler.getModItem("ImmersiveEngineering", "metalDecoration", 2, 7), new Object[]{"ABA","CDC","ABA",'A',GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Iron, 1),'B',GT_ModHandler.getModItem("ImmersiveEngineering", "material", 1, 11),'C',ItemList.Electric_Piston_LV,'D',GT_OreDictUnificator.get(OrePrefixes.gearGt, Materials.Bronze, 1)});

@@ -389,6 +389,8 @@ public class Recipes {
 		GT_ModHandler.addCraftingRecipe(GT_ModHandler.getModItem("questbook", "questBook", 1), new Object[]{"EA", 'E', GT_ModHandler.getModItem("TConstruct", "blankPattern", 1),'A',new ItemStack(Items.stick,1)});
 		GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getModItem("progressiveautomation","Planter", 1));
 		GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getModItem("progressiveautomation","Killer", 1));
+		GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getModItem("Magneticraft","crafter", 1));
+		GT_ModHandler.addCraftingRecipe(GT_ModHandler.getModItem("Magneticraft","crafter", 1),  new Object[]{"EME", "CCC", 'M', ItemList.Hull_LV, 'E', GT_ModHandler.getModItem("BuildCraft|Factory","autoWorkbenchBlock", 1), 'C', OrePrefixes.block.get(Materials.Iron)});
 		
 		
 	}
