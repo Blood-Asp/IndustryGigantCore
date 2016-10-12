@@ -24,6 +24,7 @@ import gregtech.api.enums.SubTag;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -118,6 +119,9 @@ public class ImmEngChanges {
 				
 				GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getModItem("ImmersiveEngineering", "coil", 4, 2));
 				GT_ModHandler.addCraftingRecipe(GT_ModHandler.getModItem("ImmersiveEngineering", "coil", 1, 2), new Object[]{"ACA","CBC","ACA",'A',GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.Steel, 1),'B', new ItemStack(Items.stick),'C',GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.Aluminium, 1)});
-			    
+				
+				GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getModItem("ImmersiveEngineering", "tool", 1, 3));
+				GT_ModHandler.addShapelessCraftingRecipe(GT_ModHandler.getModItem("ImmersiveEngineering", "tool", 1, 3), new Object[]{GT_ModHandler.getModItem("TConstruct", "blankPattern", 1), new ItemStack(Blocks.lever)});
+			  
 	}
 }
