@@ -46,12 +46,12 @@ public class TinkersChanges {
         addMolten(Materials.Cobalt, TinkerSmeltery.moltenCobaltFluid);
         addMolten(Materials.Bronze, TinkerSmeltery.moltenBronzeFluid);
         addMolten(Materials.Steel, TinkerSmeltery.moltenSteelFluid);
-        FluidType.registerFluidType("Nickel", GregTech_API.sBlockMetal5 , 4, 1000, Materials.Nickel.getMolten(1).getFluid(), false);
-        FluidType.registerFluidType("Lead", GregTech_API.sBlockMetal4 , 2, Materials.Lead.mMeltingPoint, Materials.Lead.getMolten(1).getFluid(), false);
-        FluidType.registerFluidType("Silver", GregTech_API.sBlockMetal6 , 10, Materials.Silver.mMeltingPoint, Materials.Silver.getMolten(1).getFluid(), false);
-        FluidType.registerFluidType("Platinum", GregTech_API.sBlockMetal5 , 11, Materials.Platinum.mMeltingPoint, Materials.Platinum.getMolten(1).getFluid(), false);
-        FluidType.registerFluidType("Invar", GregTech_API.sBlockMetal3 , 11, 1000, Materials.Invar.getMolten(1).getFluid(), false);
-        FluidType.registerFluidType("Electrum", GregTech_API.sBlockMetal2 , 15, Materials.Electrum.mMeltingPoint, Materials.Electrum.getMolten(1).getFluid(), false);
+        FluidType.registerFluidType("Nickel", GregTech_API.sBlockMetal5 , 4, 1000, FluidRegistry.getFluid("nickel.molten"), false);
+        FluidType.registerFluidType("Lead", GregTech_API.sBlockMetal4 , 2, Materials.Lead.mMeltingPoint, FluidRegistry.getFluid("lead.molten"), false);
+        FluidType.registerFluidType("Silver", GregTech_API.sBlockMetal6 , 10, Materials.Silver.mMeltingPoint, FluidRegistry.getFluid("silver.molten"), false);
+        FluidType.registerFluidType("Platinum", GregTech_API.sBlockMetal5 , 11, Materials.Platinum.mMeltingPoint, FluidRegistry.getFluid("platinum.molten"), false);
+        FluidType.registerFluidType("Invar", GregTech_API.sBlockMetal3 , 11, 1000, FluidRegistry.getFluid("invar.molten"), false);
+        FluidType.registerFluidType("Electrum", GregTech_API.sBlockMetal2 , 15, Materials.Electrum.mMeltingPoint, FluidRegistry.getFluid("electrum.molten"), false);
         addMolten(Materials.Nickel, TinkerSmeltery.moltenNickelFluid);
         addMolten(Materials.Lead, TinkerSmeltery.moltenLeadFluid);
         addMolten(Materials.Silver, TinkerSmeltery.moltenSilverFluid);
@@ -71,11 +71,11 @@ public class TinkersChanges {
 
         addMat(Materials.Brass,GregTech_API.sBlockMetal1,15);
         addMat(Materials.Cupronickel,GregTech_API.sBlockMetal2,8);
-//        addMat(Materials.Invar,GregTech_API.sBlockMetal3,11);
         addMat(Materials.SolderingAlloy,GregTech_API.sBlockMetal6,11);
         addMat(Materials.RedAlloy,GregTech_API.sBlockMetal6,1);
         addMat(Materials.CobaltBrass,GregTech_API.sBlockMetal2,6);
         addMat(Materials.BatteryAlloy,GregTech_API.sBlockMetal1,7);
+        addMat(Materials.TinAlloy,GregTech_API.sBlockMetal1,7);
         
         Smeltery.addAlloyMixing(Materials.Brass.getMolten(576), new FluidStack(mMetals.get(Materials.Copper), 432),Materials.Zinc.getMolten(144));
         Smeltery.addAlloyMixing(Materials.Cupronickel.getMolten(288), new FluidStack(mMetals.get(Materials.Copper),144),new FluidStack(mMetals.get(Materials.Nickel),144));
@@ -83,8 +83,9 @@ public class TinkersChanges {
         Smeltery.addAlloyMixing(Materials.SolderingAlloy.getMolten(1440), new FluidStack(mMetals.get(Materials.Tin), 1296),Materials.Antimony.getMolten(144));
         Smeltery.addAlloyMixing(Materials.RedAlloy.getMolten(144), new FluidStack(mMetals.get(Materials.Copper), 144),Materials.Redstone.getMolten(576));
         Smeltery.addAlloyMixing(Materials.CobaltBrass.getMolten(1296), Materials.Brass.getMolten(1008), new FluidStack(FluidRegistry.getFluid("aluminum.molten"), 144), new FluidStack(mMetals.get(Materials.Cobalt), 144));
-        Smeltery.addAlloyMixing(Materials.BatteryAlloy.getMolten(720), new FluidStack(mMetals.get(Materials.Lead), 432),Materials.Antimony.getMolten(144));
+        Smeltery.addAlloyMixing(Materials.BatteryAlloy.getMolten(720), new FluidStack(mMetals.get(Materials.Lead), 576),Materials.Antimony.getMolten(144));
         Smeltery.addAlloyMixing(new FluidStack(mMetals.get(Materials.Electrum), 288), new FluidStack(mMetals.get(Materials.Gold), 144),new FluidStack(mMetals.get(Materials.Silver), 144));
+        Smeltery.addAlloyMixing(Materials.TinAlloy.getMolten(288), new FluidStack(mMetals.get(Materials.Tin), 144),new FluidStack(mMetals.get(Materials.Iron), 144));
         
 	}
 	
@@ -130,6 +131,7 @@ public class TinkersChanges {
         for(ItemStack tItem : tItemList)
             FurnaceRecipes.smelting().getSmeltingList().remove(tItem);
         tItemList.clear();
+//        List<Materials> tMats = new ArrayList<Materials>();
         for(ItemStack tInput : mFurnace.keySet()){
         	ItemStack tOutput = mFurnace.get(tInput);
         	ItemData tData = GT_OreDictUnificator.getItemData(tOutput);
@@ -141,6 +143,10 @@ public class TinkersChanges {
         			Smeltery.addMelting(FluidType.getFluidType(tData.mMaterial.mMaterial.name()), tInput, 50, amount*tOutput.stackSize);
         		}      		
         	}
+//        	else if(tData!=null&&!tData.mMaterial.mMaterial.mBlastFurnaceRequired&&!tMats.contains(tData.mMaterial.mMaterial)){
+//        		tMats.add(tData.mMaterial.mMaterial);
+//        		System.out.println("TinkersMetalMissing: "+tData.mMaterial.mMaterial.name());
+//        	}
         }
       } 
 }
