@@ -404,7 +404,8 @@ public class Recipes {
 		GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getModItem("progressiveautomation","Killer", 1));
 		GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getModItem("Magneticraft","crafter", 1));
 		GT_ModHandler.addCraftingRecipe(GT_ModHandler.getModItem("Magneticraft","crafter", 1),  new Object[]{"EME", "CCC", 'M', ItemList.Hull_LV, 'E', GT_ModHandler.getModItem("BuildCraft|Factory","autoWorkbenchBlock", 1), 'C', OrePrefixes.block.get(Materials.Iron)});
-		
+		GT_ModHandler.addCraftingRecipe(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Wood, 1), new Object[]{"WWm",'W',new ItemStack(Blocks.log,1,GT_Values.W)});
+		GT_ModHandler.addShapelessCraftingRecipe(new ItemStack(Blocks.grass), new Object[]{new ItemStack(Blocks.dirt),new ItemStack(Items.dye,1,15), GT_ModHandler.getModItem("RotaryCraft", "rotarycraft_item_powders", 1, 13)});
 		
 	}
 	

@@ -3,6 +3,7 @@ package igcore.world;
 import cpw.mods.fml.common.eventhandler.EventBus;
 import java.util.Random;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -29,6 +30,16 @@ public class ChunkProviderDefaultVoid
   @Override
   public void populate(IChunkProvider provider, int x, int z)
   {
+	if(x==0&&z==0){
+		for(int i=0;i<16;i++){
+			for(int f=0;f<16;f++){
+				for(int g=60;g<65;g++){
+					world.setBlock(i, g, f, Blocks.cobblestone);
+				}
+			}
+		}
+	}
+	  
     net.minecraft.block.BlockFalling.fallInstantly = true;
     
     this.rand.setSeed(this.world.getSeed());

@@ -4,9 +4,11 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.server.CommandBlockLogic;
 import net.minecraft.entity.monster.*;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
@@ -27,11 +29,13 @@ import tconstruct.world.TinkerWorld;
 import java.io.File;
 import java.util.HashSet;
 
+import Reika.DragonAPI.Auxiliary.Trackers.PlayerHandler;
 import Reika.RotaryCraft.Auxiliary.ItemStacks;
 import Reika.RotaryCraft.Auxiliary.RecipeManagers.WorktableRecipes;
 import Reika.RotaryCraft.Registry.ConfigRegistry;
 import Reika.RotaryCraft.Registry.ItemRegistry;
 import Reika.RotaryCraft.Registry.RotaryAchievements;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -42,6 +46,7 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.WorldTickEvent;
 import gregtech.GT_Mod;
 import gregtech.api.GregTech_API;
@@ -68,7 +73,7 @@ import static gregtech.api.enums.GT_Values.*;
 public class IGCore
 {
     public static final String MODID = "IGCore";
-    public static final String VERSION = "0.1.7";
+    public static final String VERSION = "0.2.0";
     
     public static final GT_Recipe_Map sTraderRecipes = new GT_Recipe_Map(new HashSet<GT_Recipe>(1000), "gt.recipe.trader", "Trader", null, RES_PATH_GUI + "basicmachines/Default", 6, 6, 0, 0, 1, E, 1, E, true, true);
     public static final GT_Recipe_Map_Fuel sEnergyTradeFuels = new GT_Recipe_Map_Fuel(new HashSet<GT_Recipe>(10), "gt.recipe.energytrade", "Energy Trade", null, RES_PATH_GUI + "basicmachines/Default", 1, 1, 0, 0, 1, "Fuel Value: ", 1000, " EU", true, true);
@@ -90,6 +95,7 @@ public class IGCore
     	
     	MinecraftForge.TERRAIN_GEN_BUS.register(this);
     	MinecraftForge.EVENT_BUS.register(this);
+    	FMLCommonHandler.instance().bus().register(this);
     	
     	ItemListIG.Machine_LV_Trader.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(8000, "basicmachine.trader.tier.01", "Basic Trader", 1, "Buy and Sell stuff", sTraderRecipes, 6, 6, 64000, 0, 1, "Default.png", (String) GregTech_API.sSoundList.get(Integer.valueOf(212)), false, false, 0, "ASSEMBLER", null).getStackForm(1L));
     	ItemListIG.Machine_MV_Trader.set(new GT_MetaTileEntity_BasicMachine_GT_Recipe(8001, "basicmachine.trader.tier.02", "Good Trader", 2, "Buy and Sell stuff", sTraderRecipes, 6, 6, 64000, 0, 1, "Default.png", (String) GregTech_API.sSoundList.get(Integer.valueOf(212)), false, false, 0, "ASSEMBLER", null).getStackForm(1L));
@@ -240,6 +246,22 @@ public class IGCore
     		
     	}
     }
+    
+    @SubscribeEvent
+	public void firstJoin(PlayerLoggedInEvent event) {
+	      EntityPlayer player = event.player;
+	      NBTTagCompound entityData = player.getEntityData();
+	      if(voidOverworld && !entityData.getBoolean("joinedBefore")) {
+	         entityData.setBoolean("joinedBefore", true);
+	         player.inventory.addItemStackToInventory(new ItemStack(Blocks.cobblestone,64));
+	         player.inventory.addItemStackToInventory(new ItemStack(Blocks.dirt,1));
+	         player.inventory.addItemStackToInventory(new ItemStack(Blocks.sapling,1));
+	         player.inventory.addItemStackToInventory(new ItemStack(Items.bone,16));
+	         player.inventory.addItemStackToInventory(new ItemStack(Blocks.torch,64));
+	         player.inventory.addItemStackToInventory(new ItemStack(Items.bread,16));
+	         event.player.setPositionAndUpdate(8.0, 65.0, 8.0);
+	      }
+	   }
     
 	public static class BQCommandSender extends CommandBlockLogic
 	{

@@ -18,6 +18,7 @@ import gregtech.api.enums.SubTag;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -31,6 +32,10 @@ public class MagneticraftChanges {
 		MgRecipeRegister.registerPolymerizerRecipe(Materials.Naphtha.getFluid(144), GT_OreDictUnificator.get(OrePrefixes.dustSmall, Materials.Coal, 1), GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Plastic, 1), 240);
 		MgRecipeRegister.registerPolymerizerRecipe(Materials.Naphtha.getFluid(574), GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Saltpeter, 1), GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Polycaprolactam, 9), 240);
 		MgRecipeRegister.registerPolymerizerRecipe(new FluidStack(ItemList.sEpichlorhydrin,144), GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Silicon, 1), GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Silicone, 1), 240);
+		MgRecipeRegister.registerHammerTableRecipe(new ItemStack(Blocks.cobblestone), new ItemStack(Blocks.gravel));
+		MgRecipeRegister.registerHammerTableRecipe(new ItemStack(Blocks.gravel), new ItemStack(Blocks.sand));
+		MgRecipeRegister.registerHammerTableRecipe(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Wood, 1), GT_ModHandler.getModItem("RotaryCraft", "rotarycraft_item_powders", 1, 13));
+		
 		
 //		TODO
 		MgRecipeRegister.refinery.clear();
