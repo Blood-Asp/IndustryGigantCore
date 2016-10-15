@@ -73,7 +73,7 @@ import static gregtech.api.enums.GT_Values.*;
 public class IGCore
 {
     public static final String MODID = "IGCore";
-    public static final String VERSION = "0.2.0";
+    public static final String VERSION = "0.2.1";
     
     public static final GT_Recipe_Map sTraderRecipes = new GT_Recipe_Map(new HashSet<GT_Recipe>(1000), "gt.recipe.trader", "Trader", null, RES_PATH_GUI + "basicmachines/Default", 6, 6, 0, 0, 1, E, 1, E, true, true);
     public static final GT_Recipe_Map_Fuel sEnergyTradeFuels = new GT_Recipe_Map_Fuel(new HashSet<GT_Recipe>(10), "gt.recipe.energytrade", "Energy Trade", null, RES_PATH_GUI + "basicmachines/Default", 1, 1, 0, 0, 1, "Fuel Value: ", 1000, " EU", true, true);
@@ -259,6 +259,7 @@ public class IGCore
 	         player.inventory.addItemStackToInventory(new ItemStack(Items.bone,16));
 	         player.inventory.addItemStackToInventory(new ItemStack(Blocks.torch,64));
 	         player.inventory.addItemStackToInventory(new ItemStack(Items.bread,16));
+	         player.inventory.addItemStackToInventory(ItemList.Credit_Greg_Silver.get(4, null));
 	         event.player.setPositionAndUpdate(8.0, 65.0, 8.0);
 	      }
 	   }

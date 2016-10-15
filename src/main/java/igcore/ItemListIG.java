@@ -17,7 +17,8 @@ public enum ItemListIG implements IItemContainer {
 	Trade_Materials1, Trade_Materials2, Trade_Materials3, Trade_Materials4, Trade_Materials5,
 	Naquadah, Lignite, Coal, Magnetite, Gold, Iron,	Cassiterite, Tetrahedrite, NetherQuartz, Sulfur, Copper, Bauxite, Salts, Redstone, Soapstone, Nickel, Platinum, Pitchblende, Plutonium, Monazite, 
 	Molybdenum, Tungstate, Sapphire, Manganese, Quartz, Diamond, Olivine, Apatite, Galena, Lapis, Beryllium,
-	HSLABlent, PlatinumInductiveFoil, Trade_Animals, Trade_Furniture, Trade_Building, Trade_Food, Trade_Chemical, Trade_Electronics, Trade_Nuclear, Trade_Drug, Trade_Engineering, Trade_Metal, Trade_Weaponary, Trade_Misc;
+	HSLABlent, PlatinumInductiveFoil, Trade_Animals, Trade_Furniture, Trade_Building, Trade_Food, Trade_Chemical, Trade_Electronics, Trade_Nuclear, Trade_Drug, Trade_Engineering, Trade_Metal, Trade_Weaponary, Trade_Misc, 
+	Trade_Metal2, Trade_Metal3, Trade_Metal4, Trade_Metal5, Trade_Metal6;
 
 	
 	private ItemStack mStack;

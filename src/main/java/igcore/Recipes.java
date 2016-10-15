@@ -100,12 +100,12 @@ public class Recipes {
 
 		addMaterialTrade( 1, ItemListIG.Trade_Materials4.get(0, null), c0064(4), get(OrePrefixes.ingot, Materials.Titanium, 16), 25200, 8);
 		addMaterialTrade( 2, ItemListIG.Trade_Materials4.get(0, null), c0064(4), get(OrePrefixes.ingot, Materials.Neodymium, 16), 25200, 8);
-		addMaterialTrade( 3, ItemListIG.Trade_Materials4.get(0, null), c0064(4), get(OrePrefixes.dust, Materials.Uraninite, 16), 25200, 8);
-		addMaterialTrade( 4, ItemListIG.Trade_Materials4.get(0, null), c0512(1), get(OrePrefixes.gem, Materials.CertusQuartz, 16), 35000, 8);
-		addMaterialTrade( 5, ItemListIG.Trade_Materials4.get(0, null), c0512(4), new ItemStack(Items.nether_wart,16), 70200, 4);
-		addMaterialTrade( 6, ItemListIG.Trade_Materials4.get(0, null), c032k(1), new ItemStack(Items.ghast_tear,16), 192000, 4);
-		addMaterialTrade( 7, ItemListIG.Trade_Materials4.get(0, null), c0064(3), GT_Utility.copyAmount(16, ReactorStacks.ammonium), 22000, 4);
-		addMaterialTrade( 8, ItemListIG.Trade_Materials4.get(0, null), c0064(4), get(OrePrefixes.ingot, Materials.Ardite, 16), 25200, 8);
+//		addMaterialTrade( 3, ItemListIG.Trade_Materials4.get(0, null), c0064(4), get(OrePrefixes.dust, Materials.Uraninite, 16), 25200, 8);
+		addMaterialTrade( 3, ItemListIG.Trade_Materials4.get(0, null), c0512(1), get(OrePrefixes.gem, Materials.CertusQuartz, 16), 35000, 8);
+		addMaterialTrade( 4, ItemListIG.Trade_Materials4.get(0, null), c0512(4), new ItemStack(Items.nether_wart,16), 70200, 4);
+		addMaterialTrade( 5, ItemListIG.Trade_Materials4.get(0, null), c032k(1), new ItemStack(Items.ghast_tear,16), 192000, 4);
+		addMaterialTrade( 6, ItemListIG.Trade_Materials4.get(0, null), c0064(3), GT_Utility.copyAmount(16, ReactorStacks.ammonium), 22000, 4);
+		addMaterialTrade( 7, ItemListIG.Trade_Materials4.get(0, null), c0064(4), get(OrePrefixes.ingot, Materials.Ardite, 16), 25200, 8);
 		
 		addMaterialTrade( 1, ItemListIG.Trade_Materials5.get(0, null), c0512(1), get(OrePrefixes.ingot, Materials.Tungsten, 16), 25200, 16);
 		addMaterialTrade( 2, ItemListIG.Trade_Materials5.get(0, null), c0512(1), get(OrePrefixes.ingot, Materials.Platinum, 16), 25200, 16);
@@ -142,7 +142,7 @@ public class Recipes {
 		addOreTrade(ItemListIG.Plutonium.get(0, null), c0064(7), Materials.Uraninite,	Materials.Uraninite,	Materials.Uranium,		Materials.Uranium, 71680);
 		addOreTrade(ItemListIG.Monazite.get(0, null), c0064(5), Materials.Bastnasite,	Materials.Bastnasite,	Materials.Monazite,		Materials.Neodymium, 51200);
 		addOreTrade(ItemListIG.Molybdenum.get(0, null), c0064(1), Materials.Wulfenite,	Materials.Molybdenite,	Materials.Molybdenum,	Materials.Powellite, 10240);
-		addOreTrade(ItemListIG.Tungstate.get(0, null), c0064(3), Materials.Scheelite,	Materials.Scheelite,	Materials.Tungstate,	Materials.Lithium, 30720);
+		addOreTrade(ItemListIG.Tungstate.get(0, null), c0064(3), Materials.Scheelite,	Materials.Scheelite,	Materials.Scheelite,	Materials.Lithium, 30720);
 		addOreTrade(ItemListIG.Sapphire.get(0, null), c0064(5), Materials.Almandine,	Materials.Pyrope,		Materials.Sapphire,		Materials.GreenSapphire, 51200);
 		addOreTrade(ItemListIG.Manganese.get(0, null), c0064(1), Materials.Grossular,	Materials.Spessartine,	Materials.Pyrolusite,	Materials.Tantalite, 10240);
 		addOreTrade(ItemListIG.Quartz.get(0, null), c0512(1), Materials.Quartzite,	Materials.Barite,		Materials.CertusQuartz,	Materials.CertusQuartz, 81920);
@@ -330,10 +330,38 @@ public class Recipes {
         
 //		Trade_Metal
 //      screws, motors, punps, robot arms ect.	
-        addSTrade(c0001(7), 1800, 0,new ItemStack[]{ItemListIG.Trade_Metal.get(0, null), GT_ModHandler.getModItem("ImmersiveEngineering", "metalDevice", 16 ,11)});//conveyor  2/min 
-        addSTrade(c0001(4), 1200, 0,new ItemStack[]{ItemListIG.Trade_Metal.get(0, null), new ItemStack(Blocks.piston,16)});									//      bronze boiler  2/min 
-        addSTrade(c0001(4), 1200, 0,new ItemStack[]{ItemListIG.Trade_Metal.get(0, null), GT_OreDictUnificator.get(OrePrefixes.screw, Material.iron, 16)});	//      bronze boiler  2/min  
-        addSTrade(c0001(32), 1400, 0,new ItemStack[]{ItemListIG.Trade_Metal.get(0, null), ItemList.Electric_Motor_LV.get(16,null)});						//      bronze boiler  2/min  
+        addSTrade(c0001(7), 1.5, 0,new ItemStack[]{ItemListIG.Trade_Metal.get(0, null), GT_ModHandler.getModItem("ImmersiveEngineering", "metalDevice", 16 ,11)});//conveyor  4/min 
+        addSTrade(c0001(4), 1.0, 0,new ItemStack[]{ItemListIG.Trade_Metal.get(0, null), new ItemStack(Blocks.piston,16)});									//      piston 4/min 
+        addSTrade(c0001(4), 1.0, 0,new ItemStack[]{ItemListIG.Trade_Metal.get(0, null), GT_OreDictUnificator.get(OrePrefixes.screw, Materials.Iron, 16)});	//      iron screws  4/min  
+        addSTrade(c0008(5), 3.0, 0,new ItemStack[]{ItemListIG.Trade_Metal.get(0, null), ItemList.Electric_Motor_LV.get(16,null)});							//      LV Motor 10/min  
+        
+        
+
+        addSTrade(c0008(6), 2.0, 1,new ItemStack[]{ItemListIG.Trade_Metal2.get(0, null), GT_OreDictUnificator.get(OrePrefixes.foil, Materials.Aluminium, 16)});		//      aluminium foil  16/min  
+        addSTrade(c0008(14),3.0, 1,new ItemStack[]{ItemListIG.Trade_Metal2.get(0, null), ItemList.Electric_Motor_MV.get(16,null)});									//  mv motor 30/min
+        addSTrade(c0064(4), 5.0, 1,new ItemStack[]{ItemListIG.Trade_Metal2.get(0, null), ItemList.Electric_Pump_MV.get(16,null)});									//   mv pump 40/min
+        addSTrade(c0008(11),4.0, 1,new ItemStack[]{ItemListIG.Trade_Metal2.get(0, null), GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.BlackSteel, 16)});	//   blacksteel ingot 20/min
+
+        addSTrade(c0064(2), 4.0, 1,new ItemStack[]{ItemListIG.Trade_Metal3.get(0, null), GT_OreDictUnificator.get(OrePrefixes.pipeTiny, Materials.StainlessSteel, 16)});//  stainless tinypipe  25/min  
+        addSTrade(c0064(5), 5.0, 1,new ItemStack[]{ItemListIG.Trade_Metal3.get(0, null), ItemList.Electric_Motor_HV.get(16,null)});										//  60/min
+        addSTrade(c0512(2), 10.0,1,new ItemStack[]{ItemListIG.Trade_Metal3.get(0, null), ItemList.Electric_Piston_HV.get(16,null)});									//  90/min
+        addSTrade(c0512(3), 13.0,1,new ItemStack[]{ItemListIG.Trade_Metal3.get(0, null), ItemList.Sensor_HV.get(16,null)});											//   80/min
+        addSTrade(c0064(2), 3.0, 1,new ItemStack[]{ItemListIG.Trade_Metal3.get(0, null), GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.BlueSteel, 16)});		//  35/min
+
+        addSTrade(c0064(8), 10.0, 4,new ItemStack[]{ItemListIG.Trade_Metal4.get(0, null), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Titanium, 16)});		//   50/min  
+        addSTrade(c0512(4), 15.0, 4,new ItemStack[]{ItemListIG.Trade_Metal4.get(0, null), ItemList.Electric_Motor_EV.get(16,null)});									//  100/min
+        addSTrade(c0512(14),30.0, 4,new ItemStack[]{ItemListIG.Trade_Metal4.get(0, null), ItemList.Robot_Arm_EV.get(16,null)});											//  150/min
+        addSTrade(c0512(10),30.0, 4,new ItemStack[]{ItemListIG.Trade_Metal4.get(0, null), ItemList.Emitter_EV.get(16,null)});											//  120/min
+        addSTrade(c0512(5), 20.0, 4,new ItemStack[]{ItemListIG.Trade_Metal4.get(0, null), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.NiobiumTitanium, 16)});//80/min
+
+        addSTrade(c0512(5), 20.0, 8,new ItemStack[]{ItemListIG.Trade_Metal5.get(0, null), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.Tungsten, 16)});			//   100/min 
+        addSTrade(c0512(20),40.0, 8,new ItemStack[]{ItemListIG.Trade_Metal5.get(0, null), ItemList.Electric_Motor_IV.get(16,null)});										//   200/min
+        addSTrade(c4096(10),60.0, 8,new ItemStack[]{ItemListIG.Trade_Metal5.get(0, null), ItemList.Robot_Arm_IV.get(16,null)});												//   400/min
+        addSTrade(c0512(33),40.0, 8,new ItemStack[]{ItemListIG.Trade_Metal5.get(0, null), GT_OreDictUnificator.get(OrePrefixes.toolHeadSaw, Materials.TungstenCarbide, 16)});//  300/min
+        addSTrade(c4096(11),60.0, 8,new ItemStack[]{ItemListIG.Trade_Metal5.get(0, null), GT_OreDictUnificator.get(OrePrefixes.turbineBlade, Materials.HSSE, 16)});			//   600/min
+        
+        
+        
         
 //		Trade_Weaponary
 //      Mining laser
@@ -406,7 +434,11 @@ public class Recipes {
 		GT_ModHandler.addCraftingRecipe(GT_ModHandler.getModItem("Magneticraft","crafter", 1),  new Object[]{"EME", "CCC", 'M', ItemList.Hull_LV, 'E', GT_ModHandler.getModItem("BuildCraft|Factory","autoWorkbenchBlock", 1), 'C', OrePrefixes.block.get(Materials.Iron)});
 		GT_ModHandler.addCraftingRecipe(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Wood, 1), new Object[]{"WWm",'W',new ItemStack(Blocks.log,1,GT_Values.W)});
 		GT_ModHandler.addShapelessCraftingRecipe(new ItemStack(Blocks.grass), new Object[]{new ItemStack(Blocks.dirt),new ItemStack(Items.dye,1,15), GT_ModHandler.getModItem("RotaryCraft", "rotarycraft_item_powders", 1, 13)});
-		
+		GT_ModHandler.addShapelessCraftingRecipe(ItemListIG.Trade_Metal2.get(1, null),new Object[]{ItemListIG.Trade_Metal.get(1,null),ItemListIG.Machine_MV_Trader.get(1,null)});
+		GT_ModHandler.addShapelessCraftingRecipe(ItemListIG.Trade_Metal3.get(1, null),new Object[]{ItemListIG.Trade_Metal2.get(1,null),ItemListIG.Machine_HV_Trader.get(1,null)});
+		GT_ModHandler.addShapelessCraftingRecipe(ItemListIG.Trade_Metal4.get(1, null),new Object[]{ItemListIG.Trade_Metal3.get(1,null),ItemListIG.Machine_EV_Trader.get(1,null)});
+		GT_ModHandler.addShapelessCraftingRecipe(ItemListIG.Trade_Metal5.get(1, null),new Object[]{ItemListIG.Trade_Metal4.get(1,null),ItemListIG.Machine_IV_Trader.get(1,null)});
+		GT_ModHandler.addShapelessCraftingRecipe(ItemListIG.Trade_Metal6.get(1, null),new Object[]{ItemListIG.Trade_Metal5.get(1,null),ItemListIG.Machine_LuV_Trader.get(1,null)});
 	}
 	
 	public static ItemStack ZB(Block tBlock){

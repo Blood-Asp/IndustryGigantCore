@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.List;
 
 import Reika.DragonAPI.Instantiable.Data.Maps.FluidHashMap;
+import Reika.DragonAPI.Instantiable.Data.Maps.ItemHashMap;
 import Reika.DragonAPI.Libraries.Registry.ReikaOreHelper;
 import Reika.DragonAPI.ModRegistry.ModOreList;
 import Reika.ReactorCraft.ReactorCraft;
@@ -26,6 +27,7 @@ import Reika.RotaryCraft.Auxiliary.RecipeManagers.RecipesBlastFurnace.BlastRecip
 import Reika.RotaryCraft.Auxiliary.RecipeManagers.RecipesExtractor;
 import Reika.RotaryCraft.Auxiliary.RecipeManagers.RecipesFrictionHeater;
 import Reika.RotaryCraft.Auxiliary.RecipeManagers.RecipesFrictionHeater.FrictionRecipe;
+import Reika.RotaryCraft.Auxiliary.RecipeManagers.RecipesGrinder;
 import Reika.RotaryCraft.Auxiliary.RecipeManagers.WorktableRecipes;
 import Reika.RotaryCraft.Auxiliary.RecipeManagers.WorktableRecipes.WorktableRecipe;
 import Reika.RotaryCraft.ModInterface.NEI.FrictionHandler.FrictionHeaterRecipe;
@@ -34,6 +36,7 @@ import Reika.RotaryCraft.Registry.ItemRegistry;
 import Reika.RotaryCraft.Registry.MachineRegistry;
 import blusunrize.immersiveengineering.api.crafting.ArcFurnaceRecipe;
 import blusunrize.immersiveengineering.api.crafting.BlastFurnaceRecipe;
+import gregtech.GT_Mod;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
@@ -219,6 +222,11 @@ public class RoCChanges {
 		addBlastRecipe(ItemList.IC2_LapotronCrystal.get(1,null), 800, 4, "SCS", "SES", "SCS", 'S', GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Lapis, 1),'C',GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Advanced, 1),'E',ItemList.IC2_EnergyCrystal.getWildcard(1, null));
 		addBlastRecipe(ItemList.IC2_LapotronCrystal.get(1,null), 800, 4, "SCS", "SES", "SCS", 'S', GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Lazurite, 1),'C',GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Advanced, 1),'E',ItemList.IC2_EnergyCrystal.getWildcard(1, null));
 	
+		
+//Fix RoC + IC2 blaze loop
+		GT_Utility.removeSimpleIC2MachineRecipe(new ItemStack(Items.blaze_powder,5), GT_ModHandler.getCompressorRecipeList(), new ItemStack(Items.blaze_rod,1));
+		GT_ModHandler.addCompressionRecipe(new ItemStack(Items.blaze_powder,6), new ItemStack(Items.blaze_rod,1));
+		
 //	TODO Reactorcraft recipes
 //	Heatray/lens/components integrate with GT 
 	}
