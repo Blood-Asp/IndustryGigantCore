@@ -14,6 +14,7 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
@@ -89,6 +90,9 @@ public class IGCore
     	tConfig.load();
     	voidOverworld = tConfig.get("general", "GenerateVoidOverworld", false).getBoolean(false);
     	autoUpdateQuest = tConfig.get("general", "AutoUpdateQuest", true).getBoolean(true);
+    	if(voidOverworld){
+    		ForgeModContainer.defaultHasSpawnFuzz = false;
+    	}
     	
     	Util.init();
     	new GT_MetaGenerated_Item_04();
